@@ -118,7 +118,10 @@ final class LoginVC: UIViewController {
             userName: loginField.text ?? "",
             password: passwordField.text ?? ""
         ) {
-            navigationController?.setViewControllers([MainVC()], animated: true)
+            let tabBar = MainFactory.buildModule()
+            let scene = (UIApplication.shared.connectedScenes.first)
+            (scene?.delegate as? SceneDelegate)?.setRootViewController(tabBar, animated: true)
+                         
         } else {
             let alert = UIAlertController()
 
